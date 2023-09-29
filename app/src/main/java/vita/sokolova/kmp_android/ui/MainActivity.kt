@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import vita.sokolova.kmp_android.ui.entities.MovieListScreenState
 import vita.sokolova.kmp_android.ui.theme.SearchWithPaginationTaskTheme
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.internal.platform.AndroidPlatform
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

@@ -3,18 +3,12 @@ plugins {
     kotlin("android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
-    id("kotlinx-serialization")
-}
-
-repositories {
-    google()
-    mavenLocal()
-    mavenCentral()
+    id("com.jfrog.artifactory")
 }
 
 android {
     namespace = "vita.sokolova.kmp_android"
-    compileSdk = 33
+    compileSdk = 34
 
     buildFeatures {
         compose = true
@@ -26,7 +20,7 @@ android {
     defaultConfig {
         applicationId = "vita.sokolova.kmp_android"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -53,34 +47,30 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation("androidx.compose.ui:ui:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    implementation("androidx.compose.material:material:1.4.3")
-    implementation("androidx.activity:activity-compose:1.7.1")
-    implementation("com.github.skydoves:landscapist-glide:1.5.3")
-    implementation("com.google.accompanist:accompanist-flowlayout:0.23.1")
+    implementation("androidx.compose.ui:ui:1.5.1")
+    implementation("androidx.compose.ui:ui-tooling:1.5.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.1")
+    implementation("androidx.compose.foundation:foundation:1.5.1")
+    implementation("androidx.compose.material:material:1.5.1")
+    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("com.github.skydoves:landscapist-glide:2.2.0")
+    implementation("com.google.accompanist:accompanist-flowlayout:0.25.0")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
-
-    implementation("com.google.dagger:hilt-android:2.44")
+    implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.6.4")
-    implementation("me.sokolovavita.kmp-shared:shared:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.7.3")
+
+    implementation("me.sokolovavita.kmp-shared:shared-android:1.0.0")
 }
 
 // Allow references to generated code

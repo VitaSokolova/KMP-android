@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
+import com.skydoves.landscapist.ImageOptions
 import com.skydoves.landscapist.glide.GlideImage
 import vita.sokolova.kmp_android.R
 import vita.sokolova.kmp_android.ui.theme.SearchWithPaginationTaskTheme
@@ -50,11 +51,13 @@ fun MovieCard(modifier: Modifier, movie: Movie) {
                 .align(Alignment.CenterVertically)
             GlideImage(
                 modifier = pictureModifier,
-                imageModel = movie.poster,
-                contentScale = ContentScale.Crop,
+                imageModel = { movie.poster },
                 loading = { ImagePlaceholder(modifier = pictureModifier) },
                 failure = { ImagePlaceholder(modifier = pictureModifier) },
-                previewPlaceholder = R.drawable.ic_launcher_background
+                previewPlaceholder = R.drawable.ic_launcher_background,
+                imageOptions = ImageOptions(
+                    contentScale = ContentScale.Crop
+                )
             )
             Column(
                 verticalArrangement = Arrangement.Center,
@@ -77,7 +80,7 @@ fun MovieCard(modifier: Modifier, movie: Movie) {
                 FlowRow(
                     modifier = Modifier.padding(top = 8.dp),
                     content = {
-                         Chip(movie.year)
+                        Chip(movie.year)
                     }
                 )
             }
