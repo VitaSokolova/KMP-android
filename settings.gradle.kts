@@ -13,13 +13,11 @@ dependencyResolutionManagement {
 ////        mavenLocal()
         mavenCentral()
         maven {
-            val artifactoryContextUrl: String = getKeyFromLocalProperty("artifactory_contextUrl") as String//"https://vitasokolova.jfrog.io/artifactory/gradle-dev/"
-            val artifactoryUser: String = getKeyFromLocalProperty("artifactory_user") as String
-            val artifactoryPassword: String = getKeyFromLocalProperty("artifactory_password") as String
-            setUrl(artifactoryContextUrl)
+            name = "KMP-shared"
+            url = uri("https://maven.pkg.github.com/VitaSokolova/KMP-shared")
             credentials {
-                username = artifactoryUser
-                password = artifactoryPassword
+                username = getKeyFromLocalProperty("GITHUB_PACKAGES_USERNAME") as String
+                password = getKeyFromLocalProperty("GITHUB_PACKAGES_PASSWORD") as String
             }
         }
     }
